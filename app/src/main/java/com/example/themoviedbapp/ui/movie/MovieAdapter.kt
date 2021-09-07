@@ -30,12 +30,12 @@ class MovieAdapter : PagingDataAdapter<Movie, MovieViewHolder>(DIFF_CALLBACK) {
         fun bind(movie: Movie) {
             binding.apply {
                 Glide.with(itemView)
-                    .load("${movie.baseUrl}${movie.poster_path}")
+                    .load("${movie.baseUrl}${movie.posterPath}")
                     .centerCrop()
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .error(R.drawable.ic_error)
                     .into(imageView)
-                titleText.text = movie.original_title
+                titleText.text = movie.originalTitle
             }
         }
     }
