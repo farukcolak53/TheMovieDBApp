@@ -30,4 +30,9 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
             adapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
