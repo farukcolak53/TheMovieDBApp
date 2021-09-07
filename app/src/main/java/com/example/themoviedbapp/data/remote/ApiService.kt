@@ -10,6 +10,14 @@ interface ApiService {
         const val API_KEY: String = BuildConfig.MOVIEDB_API_KEY
     }
 
-    @GET("now_playing?api_key=$API_KEY")
-    suspend fun getNowPlayingMovies(@Query("page") position: Int): MovieResponse
+    @GET("movie/now_playing?api_key=$API_KEY")
+    suspend fun getNowPlayingMovies(
+        @Query("page") position: Int
+    ): MovieResponse
+
+    @GET("search/movie?api_key=$API_KEY")
+    suspend fun searchMovies(
+        @Query("query") query: String,
+        @Query("page") page: Int
+    ): MovieResponse
 }

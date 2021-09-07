@@ -7,4 +7,5 @@
     <string name="no_results_found">No results found!</string>
     <string name="movies">Movies</string>
     <string name="favourites">Favourites</string>
+    <string name="search">Search</string>
 </resources>
