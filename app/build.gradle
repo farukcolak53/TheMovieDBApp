@@ -18,6 +18,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "MOVIEDB_API_KEY", moviedb_api_key)
+        buildConfigField("String", "MOVIEDB_BASE_URL", moviedb_base_url)
     }
 
     buildTypes {
@@ -69,6 +70,7 @@ dependencies {
     // Retrofit + GSON
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 
     // Paging 3
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
