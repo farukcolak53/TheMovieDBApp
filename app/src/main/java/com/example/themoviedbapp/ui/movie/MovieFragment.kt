@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.themoviedbapp.R
+import com.example.themoviedbapp.data.remote.Movie
 import com.example.themoviedbapp.databinding.FragmentMovieBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MovieFragment : Fragment(R.layout.fragment_movie) {
+class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
     private val viewModel by viewModels<MovieViewModel>()
 
     private var _binding: FragmentMovieBinding? = null
@@ -27,14 +29,13 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
     ): View? {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentMovieBinding.bind(view)
-        val adapter = MovieAdapter()
+        val adapter = MovieAdapter(this)
 
         binding.apply {
             rvMovie.setHasFixedSize(true)
@@ -65,8 +66,12 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
             override fun onQueryTextChange(p0: String?): Boolean {
                 return true
             }
-
         })
+    }
+
+    override fun onItemClick(movie: Movie?) {
+        val action = MovieFragmentDirections.actionMovieFragmentToDetailFragment(movie!!)
+        findNavController().navigate(action)
     }
 
     override fun onDestroy() {
