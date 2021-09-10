@@ -10,6 +10,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.example.themoviedbapp.R
 import com.example.themoviedbapp.data.remote.Movie
 import com.example.themoviedbapp.databinding.FragmentMovieBinding
@@ -71,7 +72,14 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
 
     override fun onItemClick(movie: Movie?) {
         val action = MovieFragmentDirections.actionMovieFragmentToDetailFragment(movie!!)
-        findNavController().navigate(action)
+        findNavController().navigate(
+            action,
+            navOptions { // Use the Kotlin DSL for building NavOptions
+                anim {
+                    enter = android.R.animator.fade_in
+                    exit = android.R.animator.fade_out
+                }
+            })
     }
 
     override fun onDestroy() {
