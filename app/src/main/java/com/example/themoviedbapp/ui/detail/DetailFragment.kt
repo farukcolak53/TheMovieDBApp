@@ -16,8 +16,8 @@ class DetailFragment : Fragment() {
 
     private val args: DetailFragmentArgs by navArgs()
 
-    val viewModel: MovieDetailViewModel by viewModels {
-        MovieDetailViewModelFactory(
+    val viewModel: DetailViewModel by viewModels {
+        DetailViewModelFactory(
             args.movie
         )
     }

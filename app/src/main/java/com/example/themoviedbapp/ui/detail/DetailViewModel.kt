@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.themoviedbapp.data.remote.Movie
 
-class MovieDetailViewModel(
+class DetailViewModel(
     private val movieParam: Movie
 ) : ViewModel() {
 
