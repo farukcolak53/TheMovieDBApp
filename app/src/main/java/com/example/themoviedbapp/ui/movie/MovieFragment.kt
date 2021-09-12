@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themoviedbapp.R
 import com.example.themoviedbapp.data.remote.Movie
 import com.example.themoviedbapp.databinding.FragmentMovieBinding
@@ -22,6 +24,9 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
 
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
+
+    private var layoutManager: GridLayoutManager? = null
+    private var adapter: MovieAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,11 +41,13 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = MovieAdapter(this)
+        layoutManager = GridLayoutManager(context, 2)
+        val adapter = MovieAdapter(this, layoutManager)
 
         binding.apply {
             rvMovie.setHasFixedSize(true)
             rvMovie.adapter = adapter
+            rvMovie.layoutManager = layoutManager
         }
 
         viewModel.movies.observe(viewLifecycleOwner) {
@@ -68,6 +75,22 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
                 return true
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item?.itemId) {
+            R.id.change_layout -> {
+                if (layoutManager?.spanCount == 1) {
+                    layoutManager?.spanCount = 2
+                    item.title = "GRID"
+                } else {
+                    layoutManager?.spanCount = 1
+                    item.title = "LIST"
+                }
+                adapter?.notifyItemRangeChanged(0, adapter?.itemCount ?: 0)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onItemClick(movie: Movie?) {

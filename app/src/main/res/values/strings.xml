@@ -8,4 +8,6 @@
     <string name="movies">Movies</string>
     <string name="favourites">Favourites</string>
     <string name="search">Search</string>
+    <string name="list">LIST</string>
+    <string name="grid">GRID</string>
 </resources>
