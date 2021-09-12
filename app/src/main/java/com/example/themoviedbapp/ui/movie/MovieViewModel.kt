@@ -1,5 +1,6 @@
 package com.example.themoviedbapp.ui.movie
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
@@ -28,5 +29,19 @@ class MovieViewModel @Inject constructor(private val repository: MovieRepository
             repository.searchMovies(queryString)
         else
             repository.getNowPlayingMovies().cachedIn(viewModelScope)
+    }
+
+    private var _layoutManager = MutableLiveData<String>()
+    val layoutManager: LiveData<String> = _layoutManager
+
+    init {
+        _layoutManager.value = "GridLayoutManager"
+    }
+
+    fun onClickChangeLayoutManager() {
+        when (layoutManager.value) {
+            "LinearLayoutManager" -> _layoutManager.value = "GridLayoutManager"
+            "GridLayoutManager" -> _layoutManager.value = "LinearLayoutManager"
+        }
     }
 }

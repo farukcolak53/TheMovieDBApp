@@ -29,6 +29,8 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         setHasOptionsMenu(true)
         return binding.root
     }

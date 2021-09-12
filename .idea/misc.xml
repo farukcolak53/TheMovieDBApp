@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/circle.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/ic_error.xml" value="0.2537037037037037" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/ic_favourite.xml" value="0.2537037037037037" />
+        <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/ic_grid_layout.xml" value="0.26296296296296295" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/ic_home.xml" value="0.2388888888888889" />
+        <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/ic_linear_layout.xml" value="0.26296296296296295" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/ic_movie.xml" value="0.2537037037037037" />
+        <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/drawable/my_button.xml" value="0.26296296296296295" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/layout/fragment_detail.xml" value="0.225" />
         <entry key="..\:/Users/faruk/AndroidStudioProjects/TheMovieDBApp/app/src/main/res/layout/fragment_favourite.xml" value="0.25416666666666665" />
