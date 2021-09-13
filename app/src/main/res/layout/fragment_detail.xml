@@ -36,14 +36,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@drawable/fight_club" />
 
-                <ImageButton
-                    android:id="@+id/ivFavouriteButton"
+                <CheckBox
+                    android:id="@+id/cbFavourite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:src="@drawable/ic_favourite"
-                    app:layout_constraintEnd_toEndOf="@id/ivDetailImage"
-                    app:layout_constraintTop_toTopOf="@id/ivDetailImage" />
+                    android:button="@drawable/favourite_toggle"
+                    android:buttonTint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/titleText"
