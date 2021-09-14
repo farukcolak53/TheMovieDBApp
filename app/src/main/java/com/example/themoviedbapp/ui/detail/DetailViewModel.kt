@@ -10,11 +10,11 @@ import com.example.themoviedbapp.data.remote.Movie
 import kotlinx.coroutines.launch
 
 class DetailViewModel(
-    private val movieParam: Movie,
+    movieParam: Movie,
     private val repository: MovieDbRepository
 ) : ViewModel() {
 
-    private val _movie = MutableLiveData<Movie>(movieParam)
+    private val _movie = MutableLiveData(movieParam)
     val movie: LiveData<Movie> = _movie
 
     fun addToFavourite(movieEntity: MovieEntity) = viewModelScope.launch {

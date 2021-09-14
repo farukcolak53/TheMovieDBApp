@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.themoviedbapp.data.local.MovieDbRepository
 import com.example.themoviedbapp.data.local.MovieEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class FavouriteViewModel @Inject constructor(private val repository: MovieDbRepository) :

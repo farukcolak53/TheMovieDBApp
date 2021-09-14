@@ -1,6 +1,6 @@
 package com.example.themoviedbapp.ui.favourite
 
-import android.R
+import android.R.animator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -33,7 +33,7 @@ class FavouriteFragment : Fragment(), FavouriteMovieAdapter.OnItemClickListener 
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFavouriteBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
@@ -60,7 +60,7 @@ class FavouriteFragment : Fragment(), FavouriteMovieAdapter.OnItemClickListener 
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
             com.example.themoviedbapp.R.id.change_layout -> {
                 if (layoutManager?.spanCount == 1) {
                     layoutManager?.spanCount = 2
@@ -81,8 +81,8 @@ class FavouriteFragment : Fragment(), FavouriteMovieAdapter.OnItemClickListener 
             action,
             navOptions { // Use the Kotlin DSL for building NavOptions
                 anim {
-                    enter = R.animator.fade_in
-                    exit = R.animator.fade_out
+                    enter = animator.fade_in
+                    exit = animator.fade_out
                 }
             })
     }

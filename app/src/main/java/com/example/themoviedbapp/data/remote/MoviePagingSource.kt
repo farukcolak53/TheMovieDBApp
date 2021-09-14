@@ -2,8 +2,8 @@ package com.example.themoviedbapp.data.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import retrofit2.HttpException
 import java.io.IOException
+import retrofit2.HttpException
 
 private const val STARTING_PAGE_INDEX = 1
 

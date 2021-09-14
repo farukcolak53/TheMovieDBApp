@@ -47,7 +47,6 @@ class MovieAdapter(
         ) {
             val currentItemMovie = getItem(position)
             if (currentItemMovie != null) holder.bind(currentItemMovie)
-
         } else if (currentItem == ViewType.LIST.ordinal &&
             holder is ListViewHolder
         ) {
@@ -74,7 +73,6 @@ class MovieAdapter(
                 listener.onItemClick(item)
             }
         }
-
     }
 
     inner class GridViewHolder(private val binding: ItemMovieBinding) :

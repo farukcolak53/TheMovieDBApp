@@ -32,7 +32,7 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
@@ -78,7 +78,7 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
             R.id.change_layout -> {
                 if (layoutManager?.spanCount == 1) {
                     layoutManager?.spanCount = 2

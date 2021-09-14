@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.themoviedbapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
