@@ -20,4 +20,10 @@ class DetailViewModel(
     fun addToFavourite(movieEntity: MovieEntity) = viewModelScope.launch {
         repository.addToFavourite(movieEntity)
     }
+
+    suspend fun checkMovie(id: String) = repository.checkMovie(id)
+
+    fun removeFromFavorite(id: String) = viewModelScope.launch {
+        repository.removeFromFavorite(id)
+    }
 }

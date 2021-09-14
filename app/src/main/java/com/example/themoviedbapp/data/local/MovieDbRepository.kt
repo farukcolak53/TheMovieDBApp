@@ -13,4 +13,8 @@ class MovieDbRepository @Inject constructor(private val favouriteMovieDao: Movie
     suspend fun getAllMovies(): List<MovieEntity> {
         return favouriteMovieDao.getAllList()
     }
+
+    suspend fun removeFromFavorite(id: String) {
+        favouriteMovieDao.removeFromFavorite(id)
+    }
 }

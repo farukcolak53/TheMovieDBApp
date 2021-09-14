@@ -12,6 +12,11 @@ import com.example.themoviedbapp.data.remote.Movie
 import com.example.themoviedbapp.databinding.FragmentDetailBinding
 import com.example.themoviedbapp.toMovieEntity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -46,8 +51,27 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var isFavourite = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val count = viewModel.checkMovie((args.movie as Movie).id.toString())
+            withContext(Main) {
+                if (count > 0) {
+                    binding.toggleFavorite.isChecked = true
+                    isFavourite = true
+                } else {
+                    binding.toggleFavorite.isChecked = false
+                    isFavourite = false
+                }
+            }
+        }
+
         binding.toggleFavorite.setOnClickListener {
-            viewModel.addToFavourite((args.movie as Movie).toMovieEntity())
+            isFavourite = !isFavourite
+            if (isFavourite)
+                viewModel.addToFavourite((args.movie as Movie).toMovieEntity())
+            else
+                viewModel.removeFromFavorite((args.movie as Movie).id.toString())
+            binding.toggleFavorite.isChecked = isFavourite
         }
     }
 }
