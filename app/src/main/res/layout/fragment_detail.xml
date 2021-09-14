@@ -36,12 +36,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@drawable/fight_club" />
 
-                <CheckBox
-                    android:id="@+id/cbFavourite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/favourite_toggle"
-                    android:buttonTint="@color/white"
+                <ToggleButton
+                    android:id="@+id/toggleFavorite"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/favourite_toggle"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textOff=""
+                    android:textOn=""
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

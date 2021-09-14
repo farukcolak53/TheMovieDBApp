@@ -65,7 +65,7 @@ class MovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
             override fun onQueryTextSubmit(searhQuery: String?): Boolean {
                 if (searhQuery != null) {
                     binding.rvMovie.scrollToPosition(0)
-                    viewModel.searchPhotos(searhQuery)
+                    viewModel.searchMovies(searhQuery)
                     searchView.clearFocus()
                 }
                 return true

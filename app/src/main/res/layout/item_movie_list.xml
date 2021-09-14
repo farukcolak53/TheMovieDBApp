@@ -20,6 +20,7 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:padding="8dp"
+                android:paddingEnd="36dp"
                 android:textAlignment="textStart"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="@color/white"

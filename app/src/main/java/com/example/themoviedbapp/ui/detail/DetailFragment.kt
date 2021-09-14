@@ -7,8 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.themoviedbapp.data.local.MovieDbRepository
+import com.example.themoviedbapp.data.remote.Movie
 import com.example.themoviedbapp.databinding.FragmentDetailBinding
+import com.example.themoviedbapp.toMovieEntity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
@@ -16,9 +22,13 @@ class DetailFragment : Fragment() {
 
     private val args: DetailFragmentArgs by navArgs()
 
+    @Inject
+    lateinit var repository: MovieDbRepository
+
     val viewModel: DetailViewModel by viewModels {
         DetailViewModelFactory(
-            args.movie
+            args.movie,
+            repository
         )
     }
 
@@ -31,5 +41,13 @@ class DetailFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.toggleFavorite.setOnClickListener {
+            viewModel.addToFavourite((args.movie as Movie).toMovieEntity())
+        }
     }
 }

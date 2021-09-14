@@ -19,7 +19,7 @@ class MovieViewModel @Inject constructor(private val repository: MovieRepository
 
     private val currentQuery = MutableLiveData(DEFAULT_QUERY)
 
-    fun searchPhotos(query: String) {
+    fun searchMovies(query: String) {
         currentQuery.value = query
     }
 
