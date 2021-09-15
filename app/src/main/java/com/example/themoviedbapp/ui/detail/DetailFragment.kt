@@ -52,9 +52,11 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val movie: Movie = args.movie
+
         var isFavourite = false
         CoroutineScope(Dispatchers.IO).launch {
-            val count = viewModel.checkMovie((args.movie as Movie).id.toString())
+            val count = viewModel.checkMovie(movie.id.toString())
             withContext(Main) {
                 if (count > 0) {
                     binding.toggleFavorite.isChecked = true
@@ -69,9 +71,9 @@ class DetailFragment : Fragment() {
         binding.toggleFavorite.setOnClickListener {
             isFavourite = !isFavourite
             if (isFavourite)
-                viewModel.addToFavourite((args.movie as Movie).toMovieEntity())
+                viewModel.addToFavourite(movie.toMovieEntity())
             else
-                viewModel.removeFromFavorite((args.movie as Movie).id.toString())
+                viewModel.removeFromFavorite(movie.id.toString())
             binding.toggleFavorite.isChecked = isFavourite
         }
     }

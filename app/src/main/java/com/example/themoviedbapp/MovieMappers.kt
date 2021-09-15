@@ -3,10 +3,6 @@ package com.example.themoviedbapp
 import com.example.themoviedbapp.data.local.MovieEntity
 import com.example.themoviedbapp.data.remote.Movie
 
-fun List<Movie>.toMovieEntityList() = map {
-    it.toMovieEntity()
-}
-
 fun Movie.toMovieEntity() = MovieEntity(
     id = id.toString(),
     title = title,

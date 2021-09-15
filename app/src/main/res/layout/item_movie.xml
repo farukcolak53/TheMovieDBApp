@@ -19,6 +19,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
                 tools:src="@drawable/fight_club" />
 
             <TextView
