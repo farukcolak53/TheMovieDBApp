@@ -17,7 +17,7 @@ data class Movie(
     @SerializedName("release_date")
     val releaseDate: String?,
     @SerializedName("title")
-    val title: String?,
+    val title: String?
 ) : Parcelable {
     val baseUrl: String get() = "https://image.tmdb.org/t/p/w500"
 }

@@ -77,4 +77,9 @@ class DetailFragment : Fragment() {
             binding.toggleFavorite.isChecked = isFavourite
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
