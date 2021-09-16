@@ -12,7 +12,7 @@ fun Movie.toMovieEntity() = MovieEntity(
     releaseDate = releaseDate
 )
 
-@JvmName("toProductItemListProductEntity")
+@JvmName("movieEntityListToMovieList")
 fun List<MovieEntity>.toMovieList() = map {
     it.toMovie()
 }

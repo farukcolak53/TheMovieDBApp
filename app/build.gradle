@@ -50,9 +50,12 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Testing
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    testImplementation "com.google.truth:truth:$truthVersion"
 
     //Material
     implementation "com.google.android.material:material:$materialVersion"
@@ -81,6 +84,11 @@ dependencies {
     //Room
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+
+    // Mockito
+    testImplementation("androidx.test:core:$mockitoTestCore")
+    testImplementation("org.mockito:mockito-core:$mockitoCore")
+    testImplementation("org.mockito:mockito-inline:$mockitoInLine")
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
 }
