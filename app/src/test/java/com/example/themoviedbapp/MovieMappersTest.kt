@@ -10,7 +10,6 @@ import org.mockito.MockitoAnnotations
 class MovieMappersTest {
 
     private lateinit var movie: Movie
-
     private lateinit var movieEntity: MovieEntity
 
     @Before
@@ -36,13 +35,13 @@ class MovieMappersTest {
     }
 
     @Test
-    fun `given Movie, when toMovieEntity is called, then MovieEntity should return`() {
+    fun `given Movie, when toMovieEntity is called, then MovieEntity should be returned`() {
         val result = movie.toMovieEntity() is MovieEntity
         assertThat(result).isTrue()
     }
 
     @Test
-    fun `given MovieEntity, when toMovie is called, then Movie should return`() {
+    fun `given MovieEntity, when toMovie is called, then Movie should be returned`() {
         val result = movieEntity.toMovie() is Movie
         assertThat(result).isTrue()
     }

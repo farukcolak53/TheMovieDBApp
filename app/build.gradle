@@ -9,6 +9,11 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion "29.0.3"
 
+    packagingOptions {
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+    }
+
     defaultConfig {
         applicationId "com.example.themoviedbapp"
         minSdkVersion rootProject.minSdkVersion
@@ -49,13 +54,30 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.legacy:legacy-support-v4:$legacySupportVersion"
 
     // Testing
+    // Local Unit Tests
+    implementation "androidx.test:core:$mockitoTestCoreVersion"
     testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+    testImplementation "androidx.arch.core:core-testing:$androidxArchCoreTestingVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "com.google.truth:truth:$truthVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoInLineVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesTestVersion"
+
+    //Instrumented Unit Tests
+    androidTestImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    testImplementation "com.google.truth:truth:$truthVersion"
+    androidTestImplementation "com.google.truth:truth:$truthVersion"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$mockitoVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$androidxArchCoreTestingVersion"
+    androidTestImplementation "androidx.test.ext:junit:$testExtJunitVersion"
+    androidTestImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesTestVersion"
 
     //Material
     implementation "com.google.android.material:material:$materialVersion"
@@ -73,7 +95,7 @@ dependencies {
     // Retrofit + GSON
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
 
     // Paging 3
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
@@ -84,13 +106,6 @@ dependencies {
     //Room
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
-
-    // Mockito
-    testImplementation("androidx.test:core:$mockitoTestCore")
-    testImplementation("org.mockito:mockito-core:$mockitoCore")
-    testImplementation("org.mockito:mockito-inline:$mockitoInLine")
-
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
 }
 
 kapt {
